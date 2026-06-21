@@ -34,6 +34,8 @@ def fit_line(x: mx.array, y: mx.array, *, steps: int = 200, learning_rate: float
         loss, (weight_grad, bias_grad) = loss_and_grad(weight, bias, x, y)
         weight = weight - learning_rate * weight_grad
         bias = bias - learning_rate * bias_grad
-        mx.eval(weight, bias, loss)
+        mx.eval(weight, bias)
 
+    loss = _loss(weight, bias, x, y)
+    mx.eval(weight, bias, loss)
     return LineFit(weight=weight, bias=bias, loss=loss)
