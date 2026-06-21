@@ -12,6 +12,10 @@ dependencies = [
   "mlx",
 ]
 
+[project.scripts]
+tiny-llm-train = "mlx_experiments.tiny_llm.train:main"
+tiny-llm-sample = "mlx_experiments.tiny_llm.sample:main"
+
 [project.optional-dependencies]
 dev = [
   "pytest>=8",
